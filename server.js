@@ -1,0 +1,11 @@
+const express = require('express')
+const connectDB = require('./database/connection')
+const app = express()
+const userRoute = require('./Routes/user')
+app.get('/' , (req,res) =>{
+    res.send('Welcome')
+})
+connectDB()
+app.use(express.json())
+app.use('/userapi', userRoute )
+app.listen(3000)
